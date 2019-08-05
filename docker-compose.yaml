@@ -1,0 +1,19 @@
+version: "3.6"
+services:
+  olm-src:
+    build:
+      context: .
+      dockerfile: Dockerfile.git
+    volumes:
+      - "./ext-src/:/ext-src:rw"
+    environment:
+      DET_LOCALSRC: olm
+      DET_REPOSURL: "https://gitlab.matrix.org/matrix-org/olm.git"
+  olm-lib:
+    build:
+      context: .
+      dockerfile: Dockerfile.olm
+    volumes:
+      - "./ext-src/olm/:/ext-src/olm/:ro"
+      - "./libolm/:/libolm/:rw"
+

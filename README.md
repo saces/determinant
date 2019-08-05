@@ -8,8 +8,8 @@ Doc: https://saces.github.io/determinant/
 
 Support room: #determinant:saces.de
 
-To see whats done:
+To see what is done:
 
         git clone https:://github.com/saces/determinant.git .
-        docker-compose build
+        ./determinant.sh
 
