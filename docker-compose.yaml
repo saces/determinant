@@ -16,4 +16,13 @@ services:
     volumes:
       - "./ext-src/olm/:/ext-src/olm/:ro"
       - "./libolm/:/libolm/:rw"
+  go-olm-src:
+    build:
+      context: .
+      dockerfile: Dockerfile.git
+    volumes:
+      - "./ext-src/:/ext-src:rw"
+    environment:
+      DET_LOCALSRC: go-olm
+      DET_REPOSURL: "https://github.com/saces/go-olm.git"
 
