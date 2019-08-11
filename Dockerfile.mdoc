@@ -1,0 +1,14 @@
+FROM debian
+
+RUN apt-get update \
+    && apt-get install -y virtualenv python3-virtualenv git curl wget \
+    && virtualenv -p python3 /env
+
+COPY ./ext-src/matrix-doc/scripts/requirements.txt /tmp
+RUN /env/bin/pip install -r /tmp/requirements.txt \
+    && rm /tmp/requirements.txt
+
+ENV LC_ALL=C.UTF-8 \
+    LANG=C.UTF-8
+
+CMD ["/bin/bash", "-c", "source /env/bin/activate && /ext-src/matrix-doc/scripts/dump-swagger.py -o /matrix-spec/matrix-api.json"]

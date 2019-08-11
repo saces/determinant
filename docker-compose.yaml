@@ -25,4 +25,20 @@ services:
     environment:
       DET_LOCALSRC: go-olm
       DET_REPOSURL: "https://github.com/saces/go-olm.git"
+  matrix-doc-src:
+    build:
+      context: .
+      dockerfile: Dockerfile.git
+    volumes:
+      - "./ext-src/:/ext-src/:rw"
+    environment:
+      DET_LOCALSRC: matrix-doc
+      DET_REPOSURL: "https://github.com/matrix-org/matrix-doc.git"
+  matrix-doc-gen:
+    build:
+      context: .
+      dockerfile: Dockerfile.mdoc
+    volumes:
+      - "./ext-src/matrix-doc/:/ext-src/matrix-doc/:ro"
+      - "./matrix-spec/:/matrix-spec/:rw"
 
