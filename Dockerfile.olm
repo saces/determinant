@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     cmake \
     && rm -rf /var/lib/apt/lists/*
 
-COPY ./scripts/buildolm.sh /scripts/buildolm.sh
+COPY ./docker-scripts/buildolm.sh /scripts/buildolm.sh
 
 ENV PATH=$PATH:/scripts
 CMD ["buildolm.sh"]

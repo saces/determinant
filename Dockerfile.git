@@ -2,7 +2,7 @@ FROM alpine:latest
 
 RUN apk add git
 
-COPY ./scripts/clone.sh /scripts/clone.sh
+COPY ./docker-scripts/clone.sh /scripts/clone.sh
 
 ENV PATH=$PATH:/scripts
 CMD ["clone.sh"]
