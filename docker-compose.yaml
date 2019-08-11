@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile.git
     volumes:
-      - "./ext-src/:/ext-src:rw"
+      - "./ext-src/:/ext-src/:rw"
     environment:
       DET_LOCALSRC: olm
       DET_REPOSURL: "https://gitlab.matrix.org/matrix-org/olm.git"
@@ -21,7 +21,7 @@ services:
       context: .
       dockerfile: Dockerfile.git
     volumes:
-      - "./ext-src/:/ext-src:rw"
+      - "./ext-src/:/ext-src/:rw"
     environment:
       DET_LOCALSRC: go-olm
       DET_REPOSURL: "https://github.com/saces/go-olm.git"
