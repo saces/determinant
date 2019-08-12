@@ -41,4 +41,10 @@ services:
     volumes:
       - "./ext-src/matrix-doc/:/ext-src/matrix-doc/:ro"
       - "./matrix-spec/:/matrix-spec/:rw"
-
+  generate-client-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.gen
+    volumes:
+      - "./matrix-spec/:/matrix-spec/:ro"
+      - "./generated-src/:/generated-src/:rw"

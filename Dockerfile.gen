@@ -1,0 +1,13 @@
+FROM golang:1.12-alpine as builder
+
+RUN apk add git
+
+RUN go get -u github.com/go-swagger/go-swagger/cmd/swagger 
+
+
+FROM alpine:latest
+LABEL maintainer saces <saces@c-base.org>
+
+COPY --from=builder /go/bin/ /go/bin/
+
+CMD ["/go/bin/swagger", "generate", "client", "-f", "/matrix-spec/matrix-api.json", "-t", "/generated-src/"]

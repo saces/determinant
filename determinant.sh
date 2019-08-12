@@ -16,3 +16,11 @@ docker-compose run -u $(id -u ${USER}):$(id -g ${USER}) matrix-doc-src
 
 docker-compose build matrix-doc-gen
 docker-compose run -u $(id -u ${USER}):$(id -g ${USER}) matrix-doc-gen
+
+
+if ! test -e ./generated-src/go.mod; then
+  echo "module saces.de/determinat/test" > ./generated-src/go.mod
+fi
+
+docker-compose build generate-client-api
+docker-compose run -u $(id -u ${USER}):$(id -g ${USER}) generate-client-api
