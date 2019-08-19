@@ -33,7 +33,7 @@ services:
       - "./ext-src/:/ext-src/:rw"
     environment:
       DET_LOCALSRC: matrix-doc
-      DET_REPOSURL: "https://github.com/matrix-org/matrix-doc.git"
+      DET_REPOSURL: "https://github.com/saces/matrix-doc.git"
   matrix-doc-gen:
     build:
       context: .
