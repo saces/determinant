@@ -11,4 +11,6 @@ RUN /env/bin/pip install -r /tmp/requirements.txt \
 ENV LC_ALL=C.UTF-8 \
     LANG=C.UTF-8
 
-CMD ["/bin/bash", "-c", "source /env/bin/activate && /ext-src/matrix-doc/scripts/dump-swagger.py -o /matrix-spec/matrix-api.json"]
+COPY ./docker-scripts/dump-swagger-determinant.py /scripts/dump-swagger-determinant.py
+
+CMD ["/bin/bash", "-c", "source /env/bin/activate && /scripts/dump-swagger-determinant.py -d /ext-src/matrix-doc/ -t /matrix-spec/determinant/"]
