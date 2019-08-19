@@ -126,7 +126,7 @@ def resolve_references(path, schema):
         # do $ref first
         if '$ref' in schema:
             value = schema['$ref']
-            print("RefResolve: %s" % value)
+            #print("RefResolve: %s" % value)
             path = os.path.join(os.path.dirname(path), value)
             with open(path, encoding="utf-8") as f:
                 ref = yaml.full_load(f)
