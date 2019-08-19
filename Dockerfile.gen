@@ -9,5 +9,6 @@ FROM alpine:latest
 LABEL maintainer saces <saces@c-base.org>
 
 COPY --from=builder /go/bin/ /go/bin/
+COPY ./docker-scripts/go-swagger.sh /scripts/go-swagger.sh
 
-CMD ["/go/bin/swagger", "generate", "client", "-f", "/matrix-spec/matrix-api.json", "-t", "/generated-src/"]
+CMD ["/scripts/go-swagger.sh"]

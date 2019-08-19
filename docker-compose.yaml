@@ -47,4 +47,4 @@ services:
       dockerfile: Dockerfile.gen
     volumes:
       - "./matrix-spec/:/matrix-spec/:ro"
-      - "./generated-src/:/generated-src/:rw"
+      - "./generated-src/:/go/src/:rw"
