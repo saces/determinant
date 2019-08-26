@@ -129,7 +129,7 @@ def resolve_references(path, schema):
             #print("RefResolve: %s" % value)
             path = os.path.join(os.path.dirname(path), value)
             with open(path, encoding="utf-8") as f:
-                ref = yaml.full_load(f)
+                ref = yaml.load(f)
             result = resolve_references(path, ref)
             del schema['$ref']
         else:
@@ -154,7 +154,7 @@ def dump_api(apiname, output, client_major_version=None):
 
         print("Reading swagger API: %s" % filepath)
         with open(filepath, "r") as f:
-            api = yaml.full_load(f.read())
+            api = yaml.load(f.read())
             api = resolve_references(filepath, api)
 
             basePath = api['basePath']
