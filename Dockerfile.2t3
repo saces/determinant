@@ -1,0 +1,15 @@
+FROM golang:1.13-alpine as builder
+
+RUN apk add git
+
+ADD ./transposer /transposer
+WORKDIR /transposer
+RUN go install transposer
+
+FROM alpine:latest
+LABEL maintainer saces <saces@c-base.org>
+
+COPY --from=builder /go/bin/ /go/bin/
+
+CMD ["/go/bin/transposer"]
+

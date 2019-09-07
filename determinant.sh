@@ -6,6 +6,9 @@ set -e
 docker-compose build matrix-doc-src
 docker-compose run -u $(id -u ${USER}):$(id -g ${USER}) matrix-doc-src
 
+docker-compose build matrix-doc-2t3
+docker-compose run -u $(id -u ${USER}):$(id -g ${USER}) matrix-doc-2t3
+
 docker-compose build matrix-doc-gen
 docker-compose run -u $(id -u ${USER}):$(id -g ${USER}) matrix-doc-gen
 

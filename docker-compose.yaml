@@ -38,6 +38,13 @@ services:
       DET_REPOS_MATRIX_BRANCH: "master"
       DET_REPOS_USER_NAME: "user"
       DET_REPOS_USER_EMAIL: "user@determina.nt"
+  matrix-doc-2t3:
+    build:
+      context: .
+      dockerfile: Dockerfile.2t3
+    volumes:
+      - "./ext-src/matrix-doc/:/ext-src/matrix-doc/:ro"
+      - "./matrix-spec/:/matrix-spec/:rw"
   matrix-doc-gen:
     build:
       context: .
