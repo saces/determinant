@@ -33,7 +33,11 @@ services:
       - "./ext-src/:/ext-src/:rw"
     environment:
       DET_LOCALSRC: matrix-doc
-      DET_REPOSURL: "https://github.com/matrix-org/matrix-doc.git"
+      DET_REPOS_PATCH_URL: "https://github.com/saces/matrix-doc.git"
+      DET_REPOS_MATRIX_URL: "https://github.com/matrix-org/matrix-doc.git"
+      DET_REPOS_MATRIX_BRANCH: "master"
+      DET_REPOS_USER_NAME: "user"
+      DET_REPOS_USER_EMAIL: "user@determina.nt"
   matrix-doc-gen:
     build:
       context: .
